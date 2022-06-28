@@ -8,13 +8,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.concurrent.atomic.AtomicLong;
 
 
-
-    @RestController
+@RestController
     public class GreetingController {
         private static final String template = "Hello, %s!";
         private final AtomicLong counter = new AtomicLong();
-@Autowired
-IgreetingApp igreetingApp;
+        @Autowired
+        IgreetingApp igreetingApp;
 
         @GetMapping("/greeting")
         public Greeting greeting(@RequestParam(value = "name", defaultValue = "world") String name) {
@@ -23,18 +22,24 @@ IgreetingApp igreetingApp;
         }
 
         @RequestMapping(value = ("/hello"), method = RequestMethod.GET)
-        public String hello()
-        {
+        public String hello() {
 
-           //String message = igreeting.getMessage();
-           return "hello world";
+            //String message = igreeting.getMessage();
+            return "hello world";
         }
- @PostMapping("/messages")
 
-        public String get(@RequestBody Greeting greeting){
+        @PostMapping("/messages")
+        public String get(@RequestBody Greeting greeting) {
             String getGreeting = igreetingApp.getGreeting(greeting);
             return getGreeting;
-}
+        }
 
+        @GetMapping("/getmessage/{getId}")
+        public Greeting greeting(@PathVariable long getId) {
+
+            Greeting greeting = igreetingApp.getGreetingMessage(getId);
+            return greeting;
+
+        }
     }
 
