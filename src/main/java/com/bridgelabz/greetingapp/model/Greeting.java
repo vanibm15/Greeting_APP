@@ -6,18 +6,25 @@ import javax.persistence.Id;
 
 @Entity
 public class Greeting {
-@Id
-@GeneratedValue
+     @Id
+     @GeneratedValue
         private  long id;
         private String message;
-        public Greeting(long id, String message) {
-            this.id =id;
-            this.message = message;
-        }
+        public Greeting() {
+
+    }
+
+
+    public Greeting(long id, String message) {
+        this.id = id;
+        this.message = message;
+
+    }
 
     public long getId() {
         return id;
     }
+
 
     public void setId(long id) {
         this.id = id;
@@ -31,10 +38,12 @@ public class Greeting {
         this.message = message;
     }
 
-
-    public Greeting() {
-
+    @Override
+    public String toString() {
+        return "Greeting{" +
+                "id=" + id +
+                ", message='" + message + '\'' +
+                '}';
     }
-
-    }
+}
 
