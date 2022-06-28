@@ -9,4 +9,5 @@ import org.springframework.stereotype.Repository;
 public interface GreetingRepo extends JpaRepository<Greeting,Long> {
 
 
+
 }

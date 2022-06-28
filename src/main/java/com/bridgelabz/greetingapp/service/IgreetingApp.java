@@ -16,4 +16,8 @@ public interface IgreetingApp {
 
 
     List<Greeting> getGreetings();
+
+    Greeting updateGreeting(long getId);
+
+    void deleteMessage(long id);
 }

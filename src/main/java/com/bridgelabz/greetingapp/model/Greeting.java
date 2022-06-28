@@ -21,6 +21,9 @@ public class Greeting {
 
     }
 
+    public Greeting(long id) {
+    }
+
     public long getId() {
         return id;
     }

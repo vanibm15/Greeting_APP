@@ -45,10 +45,28 @@ import java.util.concurrent.atomic.AtomicLong;
 
 
     @GetMapping("/getgreetings")
-     List<Greeting> getMessages() {
+    List<Greeting> getMessages() {
 
         List<Greeting> greetings = igreetingApp.getGreetings();
         return greetings;
     }
+
+    @PutMapping("/updatemessage/{getId}")
+    public Greeting greeting(@PathVariable long getId, @RequestBody Greeting greeting) {
+
+        Greeting greeting1 = igreetingApp.updateGreeting(getId);
+        return greeting1;
+    }
+    @DeleteMapping("/delete")
+    public String deleteMessage(@RequestParam long id){
+        igreetingApp.deleteMessage(id);
+        return "deleted....!";
+    }
+
+    private Greeting greeting() {
+        return greeting();
+    }
 }
+
+
 

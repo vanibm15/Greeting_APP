@@ -38,4 +38,15 @@ public class GreetingApp implements IgreetingApp {
         List<Greeting> greetings =greetingRepo.findAll();
         return greetings;
     }
+
+
+    @Override
+    public Greeting updateGreeting(long getId) {
+      return greetingRepo.save(new Greeting(2,"changed"));
+    }
+
+    @Override
+    public void deleteMessage(long id) {
+        greetingRepo.deleteById(id);
+    }
 }
